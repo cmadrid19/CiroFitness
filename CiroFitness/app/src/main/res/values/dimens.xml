@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_30">30dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_80">80dp</dimen>
+    <dimen name="fontSize_26">26sp</dimen>
+    <dimen name="fontSizr_12">12sp</dimen>
+</resources>
