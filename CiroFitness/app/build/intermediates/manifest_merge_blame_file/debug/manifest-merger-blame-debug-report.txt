@@ -1,0 +1,63 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cirofitness"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="15"
+8-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml
+10    <!-- Network, DATA and WIFI permissions -->
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+12-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:6:5-76
+12-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:6:22-73
+13    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+13-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:7:5-75
+13-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:7:22-72
+14
+15    <application
+15-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:9:5-26:19
+16        android:allowBackup="true"
+16-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:10:9-35
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.0.2] C:\Users\Max\.gradle\caches\transforms-2\files-2.1\4c11edde0e8743f1e03fb17544729eec\core-1.0.2\AndroidManifest.xml:22:18-86
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:11:9-43
+20        android:label="@string/app_name"
+20-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:12:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:13:9-54
+22        android:supportsRtl="true"
+22-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:14:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:15:9-40
+25        <activity android:name="com.example.cirofitness.Activities.SignInActivity" />
+25-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:16:9-72
+25-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:16:19-60
+26        <activity
+26-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:17:9-25:20
+27            android:name="com.example.cirofitness.Activities.MainActivity"
+27-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:17:19-58
+28            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+28-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:18:13-69
+29            <intent-filter>
+29-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:19:13-24:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:20:17-21:23
+30-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:20:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:23:17-77
+32-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:23:27-74
+33            </intent-filter>
+34        </activity>
+35    </application>
+36
+37</manifest>

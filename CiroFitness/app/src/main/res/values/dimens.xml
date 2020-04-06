@@ -4,5 +4,6 @@
     <dimen name="padding_10">10dp</dimen>
     <dimen name="padding_80">80dp</dimen>
     <dimen name="fontSize_26">26sp</dimen>
-    <dimen name="fontSizr_12">12sp</dimen>
+    <dimen name="fontSize_32">32sp</dimen>
+    <dimen name="fontSizr_16">16sp</dimen>
 </resources>

@@ -1,0 +1,4 @@
+#Mon Apr 06 20:43:14 CEST 2020
+base.0=C\:\\Users\\Max\\AndroidStudioProjects\\CiroFitness\\CiroFitness\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
