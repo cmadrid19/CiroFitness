@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
 
 
     /**
-     * Alerta: aviso 'Sino conexion a internet'
+     * Alerta: aviso 'Sin conexion a internet'
      */
     fun NetworkAlert(){
         Alerter.create(this)
-            .setTitle("No conectado")
-            .setText("No hay conexion a intenet")
+            .setTitle(getString(R.string.no_conectado))
+            .setText(getString(R.string.sin_conexion_internet))
             .setDuration(3500)
             .setIcon(R.drawable.network_off)
             .enableSwipeToDismiss()

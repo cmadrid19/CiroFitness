@@ -29,23 +29,37 @@
         </FrameLayout>
 
 
-        <EditText
-            android:id="@+id/textView2"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_30"
-            android:inputType="textEmailAddress"
-            android:text="email-user"
-            android:textSize="@dimen/fontSize_26" />
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:layout_marginBottom="@dimen/padding_30">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cajaEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="email-user"
+                android:inputType="textEmailAddress"
+                android:textSize="@dimen/fontSize_26"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/textView"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
             android:layout_marginBottom="@dimen/padding_10"
-            android:inputType="textPassword"
-            android:text="Contraseña"
-            android:textSize="@dimen/fontSize_26" />
+            app:passwordToggleEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cajaContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:textSize="@dimen/fontSize_26"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/bt_recoverPass"
@@ -75,9 +89,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/padding_30"
             android:text="@string/entrar"
-            android:textSize="@dimen/fontSize_32" />
+            android:textSize="@dimen/fontSize_26" />
 
-        <TextView
+        <Button
             android:id="@+id/bt_signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

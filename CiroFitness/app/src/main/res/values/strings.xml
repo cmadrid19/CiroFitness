@@ -4,4 +4,6 @@
     <string name="registrarse">Registrarse</string>
     <string name="contrasenha_olvidada">He olvidado mi contraseña</string>
     <string name="mantener_sesion">Mantener sesion</string>
+    <string name="no_conectado">No conectado</string>
+    <string name="sin_conexion_internet">No hay conexion a intenet</string>
 </resources>
