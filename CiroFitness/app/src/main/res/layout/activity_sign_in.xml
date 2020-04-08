@@ -4,61 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.SignInActivity">
+    tools:context=".activities.SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
         android:weightSum="100">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"></Space>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                android:layout_marginBottom="@dimen/padding_10">
+                android:layout_marginBottom="@dimen/padding_10"
+                app:errorEnabled="true">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cajaUser"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:hint="Nombre usuario"
-                    android:inputType="text"/>
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                android:layout_marginBottom="@dimen/padding_10">
+                android:layout_marginBottom="@dimen/padding_10"
+                app:errorEnabled="true">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cajaEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
+                android:layout_marginBottom="@dimen/padding_10"
                 app:counterEnabled="true"
                 app:counterMaxLength="8"
-                android:layout_marginBottom="@dimen/padding_10">
+                app:errorEnabled="true">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cajaContraseña1"
+                    android:id="@+id/cajaPassword1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contraseña"
@@ -66,14 +66,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
+                android:layout_marginBottom="@dimen/padding_10"
                 app:counterEnabled="true"
                 app:counterMaxLength="8"
-                android:layout_marginBottom="@dimen/padding_10">
+                app:errorEnabled="true">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cajaContraseña2"
+                    android:id="@+id/cajaPassword2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Repite contraseña"
@@ -82,11 +83,19 @@
 
 
         </LinearLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"></Space>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="enviar"
+                android:text="@string/enviar"></Button>
+
+        </LinearLayout>
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

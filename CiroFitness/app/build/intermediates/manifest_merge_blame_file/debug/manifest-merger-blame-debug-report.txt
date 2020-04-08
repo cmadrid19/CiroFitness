@@ -38,12 +38,12 @@
 23        android:testOnly="true"
 24        android:theme="@style/AppTheme" >
 24-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:15:9-40
-25        <activity android:name="com.example.cirofitness.Activities.SignInActivity" />
+25        <activity android:name="com.example.cirofitness.activities.SignUpActivity" />
 25-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:16:9-72
 25-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:16:19-60
 26        <activity
 26-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:17:9-25:20
-27            android:name="com.example.cirofitness.Activities.MainActivity"
+27            android:name="com.example.cirofitness.activities.MainActivity"
 27-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:17:19-58
 28            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
 28-->C:\Users\Max\AndroidStudioProjects\CiroFitness\CiroFitness\app\src\main\AndroidManifest.xml:18:13-69

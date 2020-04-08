@@ -4,101 +4,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity">
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="100"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="-2dp">
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:layout_marginBottom="@dimen/padding_30">
-            <ImageView
-                android:id="@+id/image1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/cirofitness_logo_all">
-            </ImageView>
-        </FrameLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:layout_marginBottom="@dimen/padding_30">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cajaEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="email-user"
-                android:inputType="textEmailAddress"
-                android:textSize="@dimen/fontSize_26"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:layout_marginBottom="@dimen/padding_10"
-            app:passwordToggleEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cajaContraseña"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:textSize="@dimen/fontSize_26"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <TextView
-            android:id="@+id/bt_recoverPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_80"
-            android:text="@string/contrasenha_olvidada"
-            android:textSize="@dimen/fontSizr_16" />
+        android:weightSum="100">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="@dimen/padding_10">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25"
+            android:gravity="center">
+
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mantener_sesion"></TextView>
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/cirofitness_logo_all"></ImageView>
+            </FrameLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_logIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_30"
-            android:text="@string/entrar"
-            android:textSize="@dimen/fontSize_26" />
 
-        <Button
-            android:id="@+id/bt_signIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_30"
-            android:text="@string/registrarse"
-            android:textSize="@dimen/fontSize_26" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="35"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cajaEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/fontSize_26" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cajaContraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/fontSize_26" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/bt_recoverPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/contrasenha_olvidada"
+                android:textSize="@dimen/fontSizr_16" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/mantener_sesion"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/bt_logIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/entrar"
+                    android:textSize="@dimen/fontSize_26" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"></Space>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/bt_signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registrarse"
+                    android:textSize="@dimen/fontSize_26"
+                    android:onClick="irRegistrarse"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"></Space>
+
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

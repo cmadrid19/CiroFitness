@@ -6,4 +6,6 @@
     <string name="mantener_sesion">Mantener sesion</string>
     <string name="no_conectado">No conectado</string>
     <string name="sin_conexion_internet">No hay conexion a intenet</string>
+    <string name="validar">Validar</string>
+    <string name="enviar">Enviar</string>
 </resources>
