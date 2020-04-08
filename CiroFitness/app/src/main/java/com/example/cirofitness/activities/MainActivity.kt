@@ -6,24 +6,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.Button
 import com.example.cirofitness.R
 import com.tapadoo.alerter.Alerter
 import com.example.cirofitness.client.requestSignIn
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        requestSignIn("hola@gmail.com", "caracola")
+        val inEmail: TextInputEditText = findViewById(R.id.cajaEmail);
+        val inPassword: TextInputEditText = findViewById(R.id.cajaPassword);
+        val btnLogin: Button = findViewById(R.id.bt_logIn);
 
-
-
-
-
+        btnLogin.setOnClickListener(View.OnClickListener {
+            Thread(Runnable {
+                requestSignIn(inEmail.text.toString(), inPassword.text.toString())
+            }).start()
+        });
     }
-
-
 
     fun irRegistrarse(view: View) {
         val intent = Intent(this,SignUpActivity::class.java)

@@ -1106,8 +1106,8 @@ int id bt_logIn 0x7f080024
 int id bt_recoverPass 0x7f080025
 int id bt_signIn 0x7f080026
 int id buttonPanel 0x7f080027
-int id cajaContraseña 0x7f080028
-int id cajaEmail 0x7f080029
+int id cajaEmail 0x7f080028
+int id cajaPassword 0x7f080029
 int id cajaPassword1 0x7f08002a
 int id cajaPassword2 0x7f08002b
 int id cajaUser 0x7f08002c
@@ -1934,6 +1934,7 @@ int style Widget_MaterialComponents_TextInputLayout_OutlinedBox 0x7f0e01f2
 int style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense 0x7f0e01f3
 int style Widget_MaterialComponents_Toolbar 0x7f0e01f4
 int style Widget_Support_CoordinatorLayout 0x7f0e01f5
+int style btn 0x7f0e01f6
 int[] styleable ActionBar { 0x7f030036, 0x7f030037, 0x7f030038, 0x7f03009c, 0x7f03009d, 0x7f03009e, 0x7f03009f, 0x7f0300a0, 0x7f0300a1, 0x7f0300af, 0x7f0300b4, 0x7f0300b5, 0x7f0300c0, 0x7f0300eb, 0x7f0300f0, 0x7f0300f5, 0x7f0300f6, 0x7f0300f8, 0x7f030102, 0x7f03010c, 0x7f030161, 0x7f03016d, 0x7f03017e, 0x7f030182, 0x7f030183, 0x7f0301b1, 0x7f0301b4, 0x7f0301f9, 0x7f030203 }
 int styleable ActionBar_background 0
 int styleable ActionBar_backgroundSplit 1
@@ -2839,3 +2840,4 @@ int[] styleable ViewStubCompat { 0x010100d0, 0x010100f2, 0x010100f3 }
 int styleable ViewStubCompat_android_id 0
 int styleable ViewStubCompat_android_layout 1
 int styleable ViewStubCompat_android_inflatedId 2
+int xml network_security_config 0x7f100000
