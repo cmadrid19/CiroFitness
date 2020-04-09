@@ -104,6 +104,7 @@
                     style="@style/btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="entrar"
                     android:text="@string/entrar"
                     android:layout_marginBottom="10dp"/>
 

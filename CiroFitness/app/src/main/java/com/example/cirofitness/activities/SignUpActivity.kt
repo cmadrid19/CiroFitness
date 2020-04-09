@@ -15,18 +15,31 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-
     }
 
-    private fun validarDatos():Boolean{
-        var datosCorrectos = false
+    /**
+     * Comprueba que el nombre este formado solo por letras.
+     */
+    private fun validarNombre(): Boolean {
+        var datosCorrectos = true
+        val nombre: EditText = findViewById(R.id.cajaUser)
+        val n: String = nombre.text.toString()
+        val chars: CharArray = n.toCharArray()
 
-        val nombre:EditText = findViewById(R.id.cajaUser)
+        chars.forEach { c ->
+            if (!c.isLetter()) {
+                datosCorrectos = false
+                return@forEach // identico al continue en java
+            }
+        }
 
         return datosCorrectos
     }
 
-    private fun validarPass(): Boolean{
+    /**
+     * Compara las contraseñas
+     */
+    private fun validarPass(): Boolean {
         var correcto: Boolean = false
 
         val pass1Box: EditText = findViewById(R.id.cajaPassword1)
@@ -35,8 +48,8 @@ class SignUpActivity : AppCompatActivity() {
         val pass_1: String = pass1Box.text.toString().trim()
         val pass_2: String = pass2Box.text.toString().trim()
 
-        if(validarLongitudPass()){
-            if (pass_1.equals(pass_2)){
+        if (validarLongitudPass()) {
+            if (pass_1.equals(pass_2)) {
                 correcto = true
             }
         }
@@ -44,16 +57,18 @@ class SignUpActivity : AppCompatActivity() {
         return correcto
     }
 
-
-    private fun validarEmail():Boolean {
+    /**
+     * Devuelve true si el fromato del email es correcto
+     */
+    private fun validarEmail(): Boolean {
         var emailCheck: Boolean = false
 
-        val emailBox:EditText = findViewById(R.id.cajaEmail)
+        val emailBox: EditText = findViewById(R.id.cajaEmail)
         val email: String = emailBox.text.toString().trim()
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             emailBox.setError("El campo es obligatorio.")
-        }else{
+        } else {
             val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
             val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
             val matcher = pattern.matcher(email)
@@ -67,7 +82,7 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    private fun validarLongitudPass(): Boolean{
+    private fun validarLongitudPass(): Boolean {
         var correcta: Boolean = false
 
         val pass1Box: EditText = findViewById(R.id.cajaPassword1)
@@ -76,7 +91,7 @@ class SignUpActivity : AppCompatActivity() {
         val pass_1: String = pass1Box.text.toString().trim()
         val pass_2: String = pass2Box.text.toString().trim()
 
-        if (pass_1.length >= 8 && pass_2.length >= 8){
+        if (pass_1.length >= 8 && pass_2.length >= 8) {
             correcta = true
         }
         return correcta
@@ -85,13 +100,14 @@ class SignUpActivity : AppCompatActivity() {
 
     fun enviar(view: View) {
         if (validarEmail() &&
-            validarPass()){
+            validarPass() &&
+            validarNombre()
+        ) {
+
             //Enviar datos al servidor
 
 
         }
-
-
     }
 
 
