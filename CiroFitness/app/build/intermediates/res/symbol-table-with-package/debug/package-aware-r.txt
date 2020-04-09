@@ -1070,6 +1070,8 @@ drawable tooltip_frame_light
 id ALT
 id CTRL
 id FUNCTION
+id H
+id M
 id META
 id SHIFT
 id SYM
@@ -1108,9 +1110,11 @@ id bt_recoverPass
 id bt_signIn
 id buttonPanel
 id cajaEmail
+id cajaFechaNacimiento
 id cajaPassword
 id cajaPassword1
 id cajaPassword2
+id cajaSexo
 id cajaUser
 id center
 id center_horizontal
@@ -1137,6 +1141,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id edEmail
 id edit_query
 id end
 id enterAlways
@@ -1333,6 +1338,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_mock
+layout activity_recover_pass
 layout activity_sign_in
 layout alerter_alert_view
 layout design_bottom_navigation_item
@@ -1416,6 +1422,7 @@ string entrar
 string enviar
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fecha_nacimiento
 string hide_bottom_view_on_scroll_behavior
 string lib_name
 string mantener_sesion

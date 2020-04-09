@@ -75,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/contrasenha_olvidada"/>
+                android:text="@string/contrasenha_olvidada"
+                android:onClick="passForgotten"/>
 
             <CheckBox
                 android:layout_width="wrap_content"

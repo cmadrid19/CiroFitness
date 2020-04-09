@@ -8,4 +8,5 @@
     <string name="sin_conexion_internet">No hay conexion a intenet</string>
     <string name="validar">Validar</string>
     <string name="enviar">Enviar</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
 </resources>

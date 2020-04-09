@@ -1,6 +1,7 @@
 package com.example.cirofitness.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
@@ -8,6 +9,7 @@ import android.view.View
 import com.example.cirofitness.R
 import com.tapadoo.alerter.Alerter
 import com.example.cirofitness.client.requestSignIn
+import com.example.cirofitness.constants.PASS_FORGOTTEN
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -16,19 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-
     }
 
     fun irRegistrarse(view: View) {
-        val intent = Intent(this,SignUpActivity::class.java)
+        val intent = Intent(this, SignUpActivity::class.java)
         startActivity(intent)
     }
 
     /**
      * Alerta: aviso 'Sin conexion a internet'
      */
-    fun NetworkAlert(){
+    fun NetworkAlert() {
         Alerter.create(this)
             .setTitle(getString(R.string.no_conectado))
             .setText(getString(R.string.sin_conexion_internet))
@@ -36,7 +36,12 @@ class MainActivity : AppCompatActivity() {
             .setIcon(R.drawable.network_off)
             .enableSwipeToDismiss()
             .setOnClickListener(
-                View.OnClickListener { startActivityForResult(Intent(Settings.ACTION_WIFI_SETTINGS), 0) })
+                View.OnClickListener {
+                    startActivityForResult(
+                        Intent(Settings.ACTION_WIFI_SETTINGS),
+                        0
+                    )
+                })
             .show()
     }
 
@@ -46,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         requestSignIn(inEmail.text.toString(), inPassword.text.toString())
 
         //Si esta bien, hacer intent
+
+    }
+
+    fun passForgotten(view: View) {
+        //Intent nuevo activity
+        
 
     }
 
