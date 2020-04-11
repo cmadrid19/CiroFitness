@@ -816,6 +816,10 @@
         "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\48b229e147a4dca9b4b961003e452a83\\appcompat-1.0.2\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\Gabriel\\Documents\\GradoSuperiorDAM\\CiroFitness\\CiroFitness\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recover_pass.xml.flat",
+        "source": "C:\\Users\\Gabriel\\Documents\\GradoSuperiorDAM\\CiroFitness\\CiroFitness\\app\\src\\main\\res\\layout\\activity_recover_pass.xml"
+    },
+    {
         "merged": "C:\\Users\\Gabriel\\Documents\\GradoSuperiorDAM\\CiroFitness\\CiroFitness\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
         "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\48b229e147a4dca9b4b961003e452a83\\appcompat-1.0.2\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
