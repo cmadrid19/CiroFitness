@@ -24,6 +24,8 @@ import java.util.*
 import java.util.regex.Pattern
 
 
+private const val TAG: String = "SignUpActivity"
+
 class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +39,7 @@ class SignUpActivity : AppCompatActivity() {
      * Comprueba que el nombre este formado solo por letras.
      */
 
-    private fun httpSend(user: User){
+    private fun httpSend(user: User) {
         val formBody = FormBody.Builder()
             .add("email", user.email)
             .add("passwd", user.password)
@@ -57,21 +59,24 @@ class SignUpActivity : AppCompatActivity() {
                 override fun onFailure(call: Call, e: IOException) {
                     e.printStackTrace()
                 }
+
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (!response.isSuccessful) {
                         throw IOException("Unexpected code " + response)
                     } else {
                         val resp = response.body?.string();
+                        this@SignUpActivity.runOnUiThread(Runnable {
+                            Toast.makeText(this@SignUpActivity, resp, Toast.LENGTH_SHORT).show()
+                        })
                         Log.d("TAG", resp);
                     }
                 }
             })
-        })
+        }).start()
     }
 
-    private fun enviar(view: View) {
-
+    fun enviar(view: View) {
         val etUsername: EditText = findViewById(R.id.cajaUser)
         val etEmail: EditText = findViewById(R.id.cajaEmail)
         val etPass: EditText = findViewById(R.id.cajaPassword1)
@@ -81,9 +86,9 @@ class SignUpActivity : AppCompatActivity() {
         val radioButton = findViewById<View>(rgSexo.getCheckedRadioButtonId()) as RadioButton
         var sexo = ""
 
-        if(radioButton.id == R.id.H){
+        if (radioButton.id == R.id.H) {
             sexo = "H"
-        }else if(radioButton.id == R.id.M){
+        } else if (radioButton.id == R.id.M) {
             sexo = "M"
         }
 
@@ -92,14 +97,12 @@ class SignUpActivity : AppCompatActivity() {
         if (validarEmail() &&
             validarPass() &&
             validarNombre() &&
-            validarSexo())
-        {
+            validarSexo()
+        ) {
             //Enviar datos al servidor
             try {
-                Log.d("TAG", "formato ET: "+strDate)
-                val fechaNacimiento:Date = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(strDate)
-                Log.d("TAG", "resultado conversion string date: " + fechaNacimiento)
-
+                val fechaNacimiento: Date =
+                    SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(strDate)
                 val user: User = User(
                     etUsername.text.toString(),
                     etPass.text.toString(),
@@ -107,10 +110,10 @@ class SignUpActivity : AppCompatActivity() {
                     fechaNacimiento,
                     sexo
                 )
-
+                Log.d("TAG", "llega hasta aqui1")
                 httpSend(user)
             } catch (e: ParseException) {
-                println("ParseException occured: " + e.message)
+                println("Exepcion al intentar parsear: " + e.message)
             }
         }
     }
@@ -126,6 +129,11 @@ class SignUpActivity : AppCompatActivity() {
                 datosCorrectos = false
                 return@forEach // identico al continue en java
             }
+        }
+        if (datosCorrectos == false) {
+            nombre.setError(getString(R.string.solo_letras))
+        } else {
+            Log.d(TAG, "Sexo validado correctamente")
         }
 
         return datosCorrectos
@@ -143,12 +151,14 @@ class SignUpActivity : AppCompatActivity() {
         val pass_1: String = pass1Box.text.toString().trim()
         val pass_2: String = pass2Box.text.toString().trim()
 
-        if (validarLongitudPass()) {
+        if (validarLongitudPass(pass1Box) && validarLongitudPass(pass2Box)) {
             if (pass_1.equals(pass_2)) {
                 correcto = true
+                Log.d(TAG, "Contraseñas  validadas correctamente")
+            } else {
+                pass2Box.setError(getString(R.string.contrasenha_no_igual))
             }
         }
-
         return correcto
     }
 
@@ -162,32 +172,32 @@ class SignUpActivity : AppCompatActivity() {
         val email: String = emailBox.text.toString().trim()
 
         if (email.isEmpty()) {
-            emailBox.setError("El campo es obligatorio.")
+            emailBox.setError(getString(R.string.campo_obligatorio))
         } else {
             val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
             val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
             val matcher = pattern.matcher(email)
             if (matcher.matches()) {
                 emailCheck = true
+                Log.d(TAG, "Email validado correctamente")
             } else {
-                emailBox.setError("Email no valido.")
+                emailBox.setError(getString(R.string.email_invalido))
             }
         }
         return emailCheck
 
     }
 
-    private fun validarLongitudPass(): Boolean {
+    private fun validarLongitudPass(edText: EditText): Boolean {
         var correcta: Boolean = false
+        val edText: EditText = findViewById(R.id.cajaPassword1)
+        val pass_1: String = edText.text.toString().trim()
 
-        val pass1Box: EditText = findViewById(R.id.cajaPassword1)
-        val pass2Box: EditText = findViewById(R.id.cajaPassword2)
-
-        val pass_1: String = pass1Box.text.toString().trim()
-        val pass_2: String = pass2Box.text.toString().trim()
-
-        if (pass_1.length >= 8 && pass_2.length >= 8) {
+        if (pass_1.length >= 8) {
             correcta = true
+            Log.d(TAG, "Longitud de Pass validada correctamente")
+        } else {
+            edText.setError(getString(R.string.contrasenha_corta))
         }
         return correcta
     }
@@ -222,19 +232,22 @@ class SignUpActivity : AppCompatActivity() {
         val selectedId = radioSexo.getCheckedRadioButtonId()
         if (selectedId != -1) {
             elegido = true
+            Log.d(TAG, "Sexo validado correctamente")
         } else {
             Toast.makeText(applicationContext, "Debes escoger un sexo", Toast.LENGTH_SHORT).show()
         }
         return elegido!!
+
     }
 
     private fun validarFechaNacimiento(): Boolean {
-        var fechaEscogida: Boolean? = false
+        var fechaEscogida: Boolean = false
         val edFechaNacimiento: EditText = findViewById(R.id.cajaFechaNacimiento)
 
         val fecha = edFechaNacimiento.getText().toString()
         if (!fecha.matches("".toRegex())) {
             fechaEscogida = true
+            Log.d(TAG, "FechaNacimiento validado correctamente")
         } else {
             Toast.makeText(
                 applicationContext,
@@ -242,7 +255,8 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        return fechaEscogida!!
+        return fechaEscogida
     }
+
 
 }

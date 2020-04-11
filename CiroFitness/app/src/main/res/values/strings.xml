@@ -9,4 +9,9 @@
     <string name="validar">Validar</string>
     <string name="enviar">Enviar</string>
     <string name="fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="solo_letras">El nombre solo puede contener letras.</string>
+    <string name="contrasenha_corta">La longitud de la contraseña debe ser mayor.</string>
+    <string name="contrasenha_no_igual">La contraseña no coincide.</string>
+    <string name="email_invalido">Email no valido.</string>
+    <string name="campo_obligatorio">El campo es obligatorio.</string>
 </resources>
