@@ -17,6 +17,7 @@
     <option name="width" value="1440" />
     <option name="height" value="780" />
   </component>
+  <component name="ProjectId" id="1aRyrpWiZx88K6LSrAfjU8m5QDO" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -39,7 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CiroFitness" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
