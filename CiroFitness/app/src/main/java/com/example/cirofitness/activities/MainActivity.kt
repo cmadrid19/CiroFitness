@@ -1,10 +1,7 @@
 package com.example.cirofitness.activities
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.os.Bundle
-import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.view.View
@@ -17,8 +14,6 @@ import com.example.cirofitness.constants.IP
 import com.example.cirofitness.constants.LOGIN
 import com.example.cirofitness.util.ConectionUtil
 import com.google.android.material.textfield.TextInputEditText
-import com.google.gson.Gson
-import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.tapadoo.alerter.Alerter
@@ -43,30 +38,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun networkAlert() {
-        Alerter.create(this)
-            .setTitle(getString(R.string.no_conectado))
-            .setText(getString(R.string.sin_conexion_internet))
-            .setDuration(3500)
-            .setIcon(R.drawable.network_off)
-            .enableSwipeToDismiss()
-            .setOnClickListener(
-                View.OnClickListener {
-                    startActivityForResult(
-                        Intent(Settings.ACTION_WIFI_SETTINGS),
-                        0
-                    )
-                })
-            .show()
-    }
+
 
     fun entrar(view: View) {
-        if (ConectionUtil.checkConnection(this) == false) { // TODO estaría mejor tener un listener ??
-            networkAlert()
-            return
-        }
-
-
         val inEmail: TextInputEditText = findViewById(R.id.cajaEmail)
         val inPassword: TextInputEditText = findViewById(R.id.cajaPassword)
         val url = URL(IP + LOGIN)
@@ -129,8 +103,8 @@ class MainActivity : AppCompatActivity() {
         if (cbRemember.isChecked){
             val etEmail: EditText = findViewById(R.id.cajaEmail)
             val email = etEmail.text.toString()
-            val prefs: SharedPreferences
-            prefs = getSharedPreferences("RememberMe", Context.MODE_PRIVATE)
+
+            val prefs: SharedPreferences = getSharedPreferences("RememberMe", Context.MODE_PRIVATE)
             val edit = prefs.edit()
             edit.putString("email", email)
             Log.d(
@@ -141,17 +115,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    open fun checkUsuarioFichero(){
+    fun checkUsuarioFichero(){
         val prefs: SharedPreferences = getSharedPreferences("RememberMe", Context.MODE_PRIVATE)
         val email = prefs.getString("email", "")
-        Log.d(
-            TAG,
-            "Email encontrado: $email"
-        )
-
-        val edText:EditText = findViewById(R.id.cajaEmail)
+        Log.d(TAG, "Email encontrado: $email")
+        val etEmail:EditText = findViewById(R.id.cajaEmail)
+        val etPass:EditText = findViewById(R.id.cajaPassword)
         if (!email.equals("")) {
-            edText.setText(email)
+            etEmail.setText(email)
+            etPass.requestFocus() // cambiar cursor al siguiente editText
             val cbRemember: CheckBox = findViewById(R.id.chRememberMe)
             cbRemember.isChecked = true
         }
@@ -161,4 +133,44 @@ class MainActivity : AppCompatActivity() {
         //Intent nuevo activity
 
     }
+
+    //Receiver check network connection
+    private val networkConnectionListener = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent?) {
+            if (!ConectionUtil.checkConnection(context)){ // Si NO hay conexion a internet
+                Alerter.create(this@MainActivity)
+                    .setTitle(getString(R.string.no_conectado))
+                    .setText(getString(R.string.sin_conexion_internet))
+                    .setDuration(3500)
+                    .setIcon(R.drawable.network_off)
+                    .enableSwipeToDismiss()
+                    .setOnClickListener(
+                        View.OnClickListener {
+                            startActivityForResult(
+                                Intent(Settings.ACTION_WIFI_SETTINGS),
+                                0
+                            )
+                        })
+                    .show()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //Registramos el networkReceiver
+        val intentFilter:IntentFilter = IntentFilter()
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
+        // Add network connectivity change action.
+        registerReceiver(networkConnectionListener, intentFilter);
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(networkConnectionListener);// en background apagar el receiver para ahorrar batería
+    }
+
+
+
+
 }

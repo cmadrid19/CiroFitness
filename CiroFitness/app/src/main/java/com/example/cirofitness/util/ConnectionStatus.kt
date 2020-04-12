@@ -6,7 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 
 /**
- * Un objeto no puede ser instanciado, es como una clase estatica.
+ * Un objeto no puede ser instanciado, es como una clase estatica en Java.
  * Nos sirve para comprobar la conexión a internet y si lo hace a través de Data o Wifi.
  */
 
